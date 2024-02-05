@@ -8,7 +8,9 @@ public class Runner {
         words.stream().map((e) -> e.chars().filter(ch -> ch == 'о').count())
                 .peek(System.out::println)
                 .filter((e) -> e != 0)
-                .reduce(Long::sum)
-                .stream().forEach(System.out::println);
+                .reduce(Long::sum).stream()
+                .peek(System.out::println)
+                .findAny()
+                .orElseThrow(() -> new RuntimeException("Тут буквы 'о' - нет"));
     }
 }

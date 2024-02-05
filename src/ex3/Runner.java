@@ -2,7 +2,6 @@ package ex3;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Runner {
     public static void main(String[] args) {
@@ -27,7 +26,7 @@ public class Runner {
         skyscrapers.stream().distinct()
                 .filter(e -> e.getHeight() > 1000)
                 .peek(System.out::println)
-                .toList().stream()
+                .reduce((a, b) -> a).stream()
                 .findAny()
                 .orElseThrow(() -> new RuntimeException("Небоскреба выше километра - нет"));
 
